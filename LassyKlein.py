@@ -23,10 +23,10 @@ t1 = time.perf_counter()
 documents = [Path(x[0]).stem for x in os.walk(args.alpino_corpus_path)]
 
 def process_document(directory_name):
-    country = None
+    country = "UNK"
 
     prefix = directory_name[0:7]
-    
+
     if prefix in [ "dpc-bal", "dpc-bmm", "dpc-kok", "dpc-svb" ]:
         country = Countries.NETHERLANDS
     elif prefix in [ "dpc-cam", "dpc-dns", "dpc-fsz", "dpc-gaz", "dpc-med",
@@ -44,3 +44,7 @@ df = pd.DataFrame({"document": documents,
                    "country": country_info})
 
 df.to_csv(args.output_path, index=None)
+
+t2 = time.perf_counter()
+
+print(f'Finished in {t2-t1} seconds')
