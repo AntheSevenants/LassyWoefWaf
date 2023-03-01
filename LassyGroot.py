@@ -50,7 +50,7 @@ print("Found", len(cmdi_files_stems), "CMDI files")
 
 # Surprise! There's no need to actually parse the XML files.
 # The structure is always exactly the same, so pardon my regular expression heresy
-id_re = re.compile("\"(.*?)\.")
+id_re = re.compile("\"(.*?)\..*?\"")
 
 
 def filter_file(pfin):
