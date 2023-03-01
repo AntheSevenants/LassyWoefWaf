@@ -4,9 +4,9 @@ import os
 import pandas as pd
 
 from pathlib import Path
-from lxml import etree
 
 from Countries import Countries
+from Common import get_country_from_cmdi_file, get_country_from_cmdi_file_lxml
 
 #
 # Argument parsing
@@ -53,18 +53,8 @@ def process_document(directory_name):
     if directory_name in cmdi_files_stems:
         cmdi_file_index = cmdi_files_stems.index(directory_name)
 
-        root = etree.parse(cmdi_files[cmdi_file_index])
-        # I HATE NAMESPACES
-        country_nodes = root.xpath("//*[local-name() = 'Source']/*[local-name() = 'Country']")
-
-        if len(country_nodes) > 0:
-            element_text = country_nodes[0].text
-            if element_text == "NL":
-                country = Countries.NETHERLANDS
-            elif element_text == "B":
-                country = Countries.BELGIUM
-
-    # Still not found? God only knows...
+        # Unleash the CMDI parser
+        country = get_country_from_cmdi_file(cmdi_files[cmdi_file_index])
 
     return country
 
