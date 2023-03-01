@@ -62,6 +62,8 @@ In any case, this is the command you should run to infer Lassy Klein region info
 python3 LassyKlein.py "/path/to/lassy klein/"
 ```
 
+![Lassy Klein results](LassyKleinMeta.csv.png)
+
 ### Lassy Groot
 
 To extract the region information for Lassy Groot, I used the CMDI files included in SONAR. You do not need any special internal CCL versions of these corpora, so this process is maximally reproducible (given that you have the patience to download and extract these corpora).
@@ -73,3 +75,5 @@ python3 LassyGroot.py "/path_to_lassy_groot/data/" "/path_to_sonar/SONAR500/CMDI
 ```
 
 The script will use all your cores to compute the region information as fast as possible.
+
+![Lassy Groot results](LassyGrootMeta.csv.png)
