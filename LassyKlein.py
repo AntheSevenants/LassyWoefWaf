@@ -62,6 +62,7 @@ country_info = [process_document(document) for document in documents]
 
 df = pd.DataFrame({"document": documents,
                    "country": country_info})
+df = df.drop_duplicates(subset="document", keep="last")
 df = df.sort_values("document")
 
 df.to_csv(args.output_path, index=None)

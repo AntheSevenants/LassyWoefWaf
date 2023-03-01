@@ -128,6 +128,7 @@ with concurrent.futures.ProcessPoolExecutor() as executor:
 df = pd.DataFrame({"document": doc_ids,
                    "country": countries})
 df = df.sort_values("document")
+df = df.drop_duplicates(subset="document", keep="last")
 
 df.to_csv(args.output_path, index=None)
 
