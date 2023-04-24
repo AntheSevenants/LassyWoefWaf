@@ -8,8 +8,8 @@ import pandas as pd
 
 from pathlib import Path
 from tqdm.auto import tqdm
-from Common import get_country_from_cmdi_file, get_country_from_cmdi_file_lxml
-from Countries import Countries
+from woef.Common import get_country_from_cmdi_file, get_country_from_cmdi_file_lxml
+from woef.Countries import Countries
 
 #
 # Argument parsing

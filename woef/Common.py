@@ -1,7 +1,7 @@
 import re
 
 from lxml import etree
-from Countries import Countries
+from woef.Countries import Countries
 
 country_re = re.compile("<Country>(.*?)<\/Country>")
 
